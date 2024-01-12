@@ -1,0 +1,12 @@
+apply from: rootProject.file('gradle/platform.gradle')
+
+architectury.forge()
+
+configurations {
+    developmentForge.extendsFrom common
+}
+
+dependencies {
+    forge "net.minecraftforge:forge:${rootProject.minecraft_version}-${rootProject.forge_version}"
+}
+
