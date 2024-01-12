@@ -1,11 +1,21 @@
 plugins {
-    id 'architectury-plugin' version "${arch_plugin_version}"
+    id 'architectury-plugin' version "${arch_plugin_version}" apply false
     id 'dev.architectury.loom' version "${loom_version}" apply false
     id 'com.github.johnrengelman.shadow' version "${shadow_version}" apply false
+    id 'io.github.pacifistmc.forgix' version "${forgix_version}"
 }
+setup()
+
+ext.modVersion = mod_version + (build_number != null ? "-build.${build_number}" : '')
 
 architectury {
     minecraft = rootProject.minecraft_version
+}
+
+forgix {
+    group = maven_group
+    mergedJarName = "${archives_base_name}-${modVersion}+mc${minecraft_version}.jar"
+    outputDir = 'build/libs/merged'
 }
 
 subprojects {
@@ -27,6 +37,8 @@ subprojects {
             officialMojangMappings { nameSyntheticMembers = false }
         }
     }
+
+    remapJar.finalizedBy(mergeJars)
 }
 
 allprojects {
@@ -69,4 +81,17 @@ allprojects {
     }
 
     java.withSourcesJar()
+}
+
+def setup() {
+    println "Template Mod v${mod_version}"
+    String buildNumber = System.getenv('GITHUB_RUN_NUMBER')
+    if(buildNumber != null) {
+        println 'Build #' + buildNumber
+        ext.build_number = buildNumber
+    } else ext.build_number = null
+    println()
+
+    println '\nPlugin versions:'
+    apply plugin: 'architectury-plugin'
 }
