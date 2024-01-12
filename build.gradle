@@ -9,7 +9,7 @@ setup()
 ext.modVersion = mod_version + (build_number != null ? "-build.${build_number}" : '')
 
 architectury {
-    minecraft = rootProject.minecraft_version
+    minecraft = minecraft_version
 }
 
 forgix {
@@ -21,13 +21,9 @@ forgix {
 subprojects {
     apply plugin: 'dev.architectury.loom'
 
-    loom {
-        silentMojangMappingsLicense()
-    }
+    loom.silentMojangMappingsLicense()
 
-    configurations {
-        shade
-    }
+    configurations { shade }
 
     dependencies {
         minecraft "com.mojang:minecraft:${minecraft_version}"
