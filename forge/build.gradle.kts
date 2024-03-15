@@ -1,5 +1,3 @@
-apply(plugin = "platform")
-
 architectury.forge()
 
 operator fun String.invoke(): String {

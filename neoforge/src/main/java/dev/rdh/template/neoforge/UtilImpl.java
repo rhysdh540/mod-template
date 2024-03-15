@@ -1,11 +1,12 @@
-package dev.rdh.template.forge;
+package dev.rdh.template.neoforge;
+
+import net.neoforged.fml.ModList;
+import net.neoforged.fml.loading.FMLLoader;
+import net.neoforged.neoforge.common.util.MavenVersionStringHelper;
+import net.neoforged.neoforgespi.language.IModInfo;
 
 import dev.rdh.template.Template;
 
-import net.minecraftforge.common.util.MavenVersionStringHelper;
-import net.minecraftforge.fml.ModList;
-import net.minecraftforge.fml.loading.FMLLoader;
-import net.minecraftforge.forgespi.language.IModInfo;
 
 import java.util.List;
 

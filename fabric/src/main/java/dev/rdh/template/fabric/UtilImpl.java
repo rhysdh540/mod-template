@@ -6,7 +6,7 @@ public class UtilImpl {
 	public static String getVersion(String modid) {
 		return FabricLoader.getInstance()
 				.getModContainer(modid)
-				.orElseThrow()
+				.orElseThrow(() -> new RuntimeException("No mod found for ID: " + modid))
 				.getMetadata()
 				.getVersion()
 				.getFriendlyString();

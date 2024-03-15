@@ -7,7 +7,7 @@ architectury {
     common {
         for(project in rootProject.subprojects) {
             if(project.path == ":common") continue
-            this.add(project.name)
+            this.add(project.name.lowercase())
         }
     }
 }

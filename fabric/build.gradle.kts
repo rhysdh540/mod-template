@@ -1,5 +1,3 @@
-apply(plugin = "platform")
-
 architectury.fabric()
 
 operator fun String.invoke(): String {
