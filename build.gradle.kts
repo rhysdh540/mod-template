@@ -97,6 +97,9 @@ subprojects {
         val props = mapOf(
                 "version" to version,
                 "minecraft" to "minecraft_version"(),
+                "forge" to "forge_version"(),
+                "fabric" to "fabric_version"(),
+                "neo" to "neoforge_version"(),
         )
 
         inputs.properties(props)

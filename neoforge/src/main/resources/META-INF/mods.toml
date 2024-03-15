@@ -14,15 +14,15 @@ Example mod description.
 '''
 
 [[dependencies.template]]
-modId = "forge"
-mandatory = true
-versionRange = "[${forge},)"
+modId = "neoforge"
+type = "required"
+versionRange = "[${neo},)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.template]]
 modId = "minecraft"
-mandatory = true
+type = "required"
 versionRange = "[${minecraft},)"
 ordering = "NONE"
 side = "BOTH"
