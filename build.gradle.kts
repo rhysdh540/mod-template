@@ -96,7 +96,7 @@ subprojects {
     tasks.processResources {
         val props = mapOf(
                 "version" to version,
-                "minecraft" to "minecraft_dependency_version"(),
+                "minecraft" to "minecraft_version"(),
         )
 
         inputs.properties(props)
